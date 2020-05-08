@@ -14,3 +14,7 @@ The following features have been implemented -
 	a. A visit to a crowded place
 	b. Close contact with another bluetooth device
 	c. A sudden drop in score due to any plausible reason
+
+
+Git Repo - https://github.com/kunjdedhia/traceYourContacts
+Video - 
