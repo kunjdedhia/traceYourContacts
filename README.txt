@@ -3,6 +3,8 @@
   * @name Kunj Dedhia kdedhia@umass.edu
 */
 
+Name of the app - Trace Your Contacts
+
 The following features have been implemented - 
 1. The application tracks the number of unique bluetooth devices it discovers and the corresponding the location coordinates. This information is stored locally in txt files sorted by dates. Since this information is stored locally, it protects the user's privacy and can be used if necessary with the user's consent.
 
@@ -17,4 +19,4 @@ The following features have been implemented -
 
 
 Git Repo - https://github.com/kunjdedhia/traceYourContacts
-Video - 
+Video - https://youtu.be/PYP95EQqBnY
