@@ -87,7 +87,7 @@ public class BluetoothTrackingService extends Service {
     @Override
     public void onCreate() {
         curLocTime = "";
-        score = 0;
+        score = 100;
         file = null;
         writer = null;
         super.onCreate();
@@ -186,8 +186,9 @@ public class BluetoothTrackingService extends Service {
         public void onScanResult(int callbackType, ScanResult result) {
             String deviceAddress = result.getDevice().getAddress();
             if (currentLocation != null) {
-                Log.d("Bluetooth Scan Results", deviceAddress + " " + currentLocation.getLatitude() + " " + currentLocation.getLongitude());
                 curLocTime = DateFormat.getTimeInstance().format(new Date());
+                Log.d("Bluetooth Scan Results", "\nDevice Address: " + deviceAddress + "\n" + "Location: " + currentLocation.getLatitude() + " " + currentLocation.getLongitude() + "\n" + "Score: " + Integer.toString(score) + "\n" + "Time: " + curLocTime);
+
 
                 if (!BLTScanResults.contains(deviceAddress)) {
                     BLTScanResults.add(deviceAddress);
@@ -202,7 +203,7 @@ public class BluetoothTrackingService extends Service {
 
                     curContactNum = BLTScanResults.size();
                     if (BLTScanResults.size() % 2 == 0) {
-                        score -= 5;
+                        score -= 2;
                     }
                     if (BLTScanResults.size() % 3 == 0) {
                         newContactBuilder.setContentText("Close contact with " + Integer.toString(curContactNum) + " people today!");
@@ -210,7 +211,7 @@ public class BluetoothTrackingService extends Service {
                     }
                     if (BLTScanResults.size() % 10 == 0) {
                         pushNotification(2);
-                        score -= 10;
+                        score -= 5;
                     }
                     if (BLTScanResults.size() % 5 == 0) {
                         scoreNotif.setContentText("Your score has dropped to " + Integer.toString(score) + ". Try Social Distancing!");
